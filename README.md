@@ -8,6 +8,21 @@
 </p>
 
 
+# 🌱 AgriGest
+
+## 📖 Description
+
+AgriGest est une application web développée avec **Laravel 12** permettant de gérer les parcelles agricoles d'une exploitation.
+
+L'application permet d'ajouter, consulter, modifier et supprimer des parcelles tout en enregistrant les informations suivantes :
+
+* Nom de la parcelle
+* Culture
+* Superficie
+* Date de plantation
+* Statut
+
+---
 
 ## 🚀 Fonctionnalités
 
