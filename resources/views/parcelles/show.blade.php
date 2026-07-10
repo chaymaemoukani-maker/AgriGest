@@ -1,23 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
     <title>Détails de la parcelle</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 
-<h2>Détails de la parcelle</h2>
+<div class="container mt-5">
 
-<p><strong>Nom :</strong> {{ $parcelle->nom }}</p>
+    <div class="card shadow">
 
-<p><strong>Culture :</strong> {{ $parcelle->culture }}</p>
+        <div class="card-header bg-success text-white">
+            <h3>🌱 Détails de la parcelle</h3>
+        </div>
 
-<p><strong>Superficie :</strong> {{ $parcelle->superficie }}</p>
+        <div class="card-body">
 
-<p><strong>Date de plantation :</strong> {{ $parcelle->date_plantation }}</p>
+            <table class="table table-bordered">
 
-<p><strong>Statut :</strong> {{ $parcelle->statut }}</p>
+                <tr>
+                    <th width="30%">Nom</th>
+                    <td>{{ $parcelle->nom }}</td>
+                </tr>
 
-<a href="{{ route('parcelles.index') }}">Retour</a>
+                <tr>
+                    <th>Culture</th>
+                    <td>{{ $parcelle->culture }}</td>
+                </tr>
+
+                <tr>
+                    <th>Superficie</th>
+                    <td>{{ $parcelle->superficie }} ha</td>
+                </tr>
+
+                <tr>
+                    <th>Date de plantation</th>
+                    <td>{{ $parcelle->date_plantation }}</td>
+                </tr>
+
+                <tr>
+                    <th>Statut</th>
+                    <td>
+                        @if($parcelle->statut == 'en culture')
+                            <span class="badge bg-success">En culture</span>
+
+                        @elseif($parcelle->statut == 'récoltée')
+                            <span class="badge bg-primary">Récoltée</span>
+
+                        @else
+                            <span class="badge bg-warning text-dark">En jachère</span>
+                        @endif
+                    </td>
+                </tr>
+
+            </table>
+
+            <a href="{{ route('parcelles.index') }}" class="btn btn-secondary">
+                ⬅ Retour
+            </a>
+
+            <a href="{{ route('parcelles.edit', $parcelle->id) }}" class="btn btn-warning">
+                ✏ Modifier
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
